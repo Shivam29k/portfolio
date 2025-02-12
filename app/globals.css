@@ -4,18 +4,98 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --background-secondary: #f4f4f5;
+  --foreground: #18181b;
+  --foreground-secondary: #52525b;
+  --primary: #3f3f46;
+  --primary-hover: #2563eb;
+  --accent: #71717a;
+  --accent-hover: #3b82f6;
+  --border: #e4e4e7;
+  --cursor-color: #2563eb; /* Blue for light mode */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dark {
+  --background: #18181b;
+  --background-secondary: #27272a;
+  --foreground: #fafafa;
+  --foreground-secondary: #d4d4d8;
+  --primary: #71717a;
+  --primary-hover: #fbbf24;
+  --accent: #747475;
+  --accent-hover: #f59e0b;
+  --border: #3f3f46;
+  --cursor-color: #fbbf24; /* Yellow for dark mode */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container {
+    @apply mx-auto px-4 md:px-4;
+    max-width: 100%;
+    
+    /* Small screens */
+    @media (max-width: 767px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Medium screens */
+    @media (min-width: 768px) {
+      max-width: 768px;
+    }
+    
+    /* Large screens */
+    @media (min-width: 1024px) {
+      max-width: 900px;
+    }
+    
+    /* Extra large screens */
+    /* @media (min-width: 1280px) {
+      max-width: 1000px;
+    } */
+  }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-10deg); }
+  40% { transform: rotate(12deg); }
+  60% { transform: rotate(-10deg); }
+  80% { transform: rotate(12deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-wave {
+  animation: wave 1.5s infinite;
+}
+
+.custom-cursor {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12A10 10 0 1 1 12 2'/%3E%3Cpath d='M22 2 12 12'/%3E%3Cpath d='M16 2h6v6'/%3E%3C/svg%3E") 12 12, pointer;
+  transition: transform 0.2s ease;
+}
+
+.dark .custom-cursor {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fbbf24' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12A10 10 0 1 1 12 2'/%3E%3Cpath d='M22 2 12 12'/%3E%3Cpath d='M16 2h6v6'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+.custom-cursor:hover {
+  transform: scale(1.01);
+}
+
+/* Embla Carousel Styles */
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
 }
