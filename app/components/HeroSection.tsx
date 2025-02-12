@@ -24,12 +24,12 @@ export default function HeroSection() {
           <div className="w-full md:w-4/6">
             <div className="space-y-4">
               <h1 className="text-2xl md:text-3xl font-bold text-foreground text-center md:text-left">
-                Hello! I'm Shivam{" "}
+                Hello! I&apos;m Shivam{" "}
                 <span className="inline-block animate-wave">👋</span>
               </h1>
               <p className="text-base md:text-lg text-foreground-secondary leading-relaxed text-center md:text-left">
                 Self-taught developer and Computer Science student with an AI/ML
-                minor. Building dbai.live and itsyour.space, and I've helped two
+                minor. Building dbai.live and itsyour.space, and I&apos;ve helped two
                 startups turn their ideas into real products.
               </p>
             </div>

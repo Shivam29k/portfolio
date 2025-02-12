@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { JSX, useState } from "react";
 import { FaReact, FaNodeJs, FaBook } from "react-icons/fa";
@@ -157,7 +158,7 @@ export default function ProjectsSection() {
               transition: "transform 0.1s ease-out",
             }}
           >
-            <img
+            <Image
               src={hoveredProject}
               alt="Project preview"
               className="w-full h-full object-cover rounded-lg shadow-xl"
