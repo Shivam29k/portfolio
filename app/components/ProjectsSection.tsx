@@ -1,7 +1,4 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { JSX, useState } from "react";
+import { JSX } from "react";
 import { FaReact, FaNodeJs, FaBook } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -13,8 +10,11 @@ import {
   SiExpo,
   SiRedux,
   SiDocker,
+  SiShadcnui,
 } from "react-icons/si";
 import { TbBrandOpenai } from "react-icons/tb";
+import { TransitionLink } from "../utils/TransitionLink";
+import { FaAppStoreIos, FaGooglePlay } from "react-icons/fa6";
 
 interface Project {
   title: string;
@@ -41,6 +41,8 @@ export const notableProjects: Project[] = [
       <SiMongodb key="mongodb" title="MongoDB" />,
       <SiTailwindcss key="tailwind" title="TailwindCSS" />,
       <SiNginx key="nginx" title="Nginx" />,
+      <FaAppStoreIos key="appstore" title="App Store" />,
+      <FaGooglePlay key="playstore" title="Play Store" />,
     ],
     features: [
       "Replaced physical distribution with a real-time digital platform, slashing delivery time from 7 days to instant access",
@@ -64,6 +66,7 @@ export const notableProjects: Project[] = [
       <SiDocker key="docker" title="Docker" />,
       <SiRedux key="redux" title="Redux" />,
       <SiTailwindcss key="tailwind" title="TailwindCSS" />,
+      <SiShadcnui key="shadcn" title="Shadcn/UI" />,
       <SiNginx key="nginx" title="Nginx" />,
       <FaBook key="ml" title="Linear Regression" />,
     ],
@@ -90,6 +93,8 @@ export const notableProjects: Project[] = [
       <SiPostgresql key="postgres" title="PostgreSQL & pgvector" />,
       <SiPrisma key="prisma" title="Prisma" />,
       <SiRedux key="redux" title="Redux" />,
+      <SiTailwindcss key="tailwind" title="TailwindCSS" />,
+      <SiShadcnui key="shadcn" title="Shadcn/UI" />,
       <SiDocker key="docker" title="Docker" />,
       <SiNginx key="nginx" title="Nginx" />,
     ],
@@ -116,46 +121,19 @@ function highlightNumbers(text: string) {
 }
 
 export default function ProjectsSection() {
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const imageHeight = 300;
-    const projectIndex = notableProjects.findIndex((p) =>
-      e.currentTarget.href.endsWith(p.slug)
-    );
-
-    let verticalOffset;
-    if (projectIndex === 0) {
-      verticalOffset = -30;
-    } else if (projectIndex === notableProjects.length - 1) {
-      verticalOffset = rect.height - imageHeight + 30;
-    } else {
-      verticalOffset = (rect.height - imageHeight) / 2;
-    }
-
-    setMousePosition({
-      x: rect.right - 300,
-      y: rect.top + verticalOffset,
-    });
-  };
 
   return (
     <section id="projects" className="py-12 md:py-20">
       <div className="container ">
-        <h2 className="text-2xl font-bold mb-6 md:mb-8">Notable Work</h2>
+        <h2 className="text-2xl font-bold mb-2">Notable Work</h2>
 
         {/* Notable Projects */}
         <div className="flex flex-col border-t border-border">
           {notableProjects.map((project, index) => (
-            <Link
+            <TransitionLink
               href={`/projects/${project.slug}`}
               key={index}
               className="border-b border-border py-6 md:py-10  group custom-cursor"
-              onMouseEnter={() => setHoveredProject(project.previewImage)}
-              onMouseLeave={() => setHoveredProject(null)}
-              onMouseMove={handleMouseMove}
             >
               <div className=" space-y-3">
                 <h3 className="text-lg md:text-xl font-medium">
@@ -174,15 +152,15 @@ export default function ProjectsSection() {
                   {project.stackIcons}
                 </div>
               </div>
-            </Link>
+            </TransitionLink>
           ))}
 
-          <Link
+          <TransitionLink
             href="/projects"
             className="text-sm md:text-base text-foreground-secondary hover:text-accent-hover pt-8"
           >
             Show More
-          </Link>
+          </TransitionLink>
         </div>
       </div>
     </section>

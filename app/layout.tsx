@@ -30,7 +30,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="mt-16">
+          <main className="mt-16 min-h-[calc(100vh-64px-100px)]">
             {children}
           </main>
           <Footer />

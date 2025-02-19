@@ -37,7 +37,7 @@ const keyFeatures = [
   "Implemented a multi-role authentication system with granular permissions, enabling role-based dashboards for Admins, Editors, Mentors, Counselors, Students, and business vertical leads.",
   "Automated workflows to reduce manual effort by 80%, including digital asset delivery, order tracking, and other operational processes.",
   "Integrated a secure payment gateway, adhering to industry-standard security protocols.",
-  "Self-hosted on a VPS with a CI/CD pipeline, cutting deployment time by 60%.",
+  "Self-hosted on a VPS with a CI/CD pipeline, cutting deployment time and efforts by 90%.",
   "Designed a scalable infrastructure capable of handling 3K+ daily visits efficiently."
 ];
 
@@ -46,7 +46,7 @@ export default function SarthaPage() {
   return (
     <main className="min-h-screen container space-y-4 md:space-y-6 py-4 md:py-6">
       {/* Navigation */}
-      <div className="pt-2 md:pt-6">
+      <div className="">
         <BreadCrums path={"projects/sartha"} />
       </div>
 

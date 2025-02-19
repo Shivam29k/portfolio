@@ -1,7 +1,6 @@
 "use client";
 
 import ThemeToggle from "./ThemeToggle";
-import Link from "next/link";
 import { FaShapes } from "react-icons/fa6";
 import { TransitionLink } from "../utils/TransitionLink";
 

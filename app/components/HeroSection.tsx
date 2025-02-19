@@ -1,14 +1,7 @@
 import Image from "next/image";
 import pfp from "@/public/pfp-bg.png";
-import {
-  FiGithub,
-  FiInstagram,
-  FiLinkedin,
-  FiMail,
-  FiTwitter,
-} from "react-icons/fi";
 import List from "./List";
-
+import Socials from "./Socials";
 const facts = [
   "Building cool stuff on the internet is my thing.",
   "Always curious, always learning—got big goals to chase.",
@@ -29,8 +22,8 @@ export default function HeroSection() {
               </h1>
               <p className="text-base md:text-lg text-foreground-secondary leading-relaxed text-center md:text-left">
                 Self-taught developer and Computer Science student with an AI/ML
-                minor. Building dbai.live and itsyour.space, and I&apos;ve helped two
-                startups turn their ideas into real products.
+                minor. Building dbai.live and itsyour.space, and I&apos;ve
+                helped two startups turn their ideas into real products.
               </p>
             </div>
 
@@ -51,49 +44,10 @@ export default function HeroSection() {
               </a>
             </div>
 
-            <div className="flex gap-6 pt-6 justify-center md:justify-start">
-              <a
-                href="https://github.com/Shivam29k"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary-hover transition-colors flex items-center gap-1"
-              >
-                <FiGithub className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/shivamkrandom"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary-hover transition-colors flex items-center gap-1"
-              >
-                <FiLinkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/_shivam_k29"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary-hover transition-colors flex items-center gap-1"
-              >
-                <FiInstagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://x.com/ShivamKrandom"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary-hover transition-colors flex items-center gap-1"
-              >
-                <FiTwitter className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:skumarshivam50@gmail.com"
-                className="text-primary hover:text-primary-hover transition-colors flex items-center gap-1"
-              >
-                <FiMail className="w-5 h-5" />
-              </a>
-            </div>
+            {/* <Socials className="" /> */}
           </div>
 
-          <div className="relative w-40 md:w-2/6 flex h-full justify-center mb-6 md:mb-auto">
+          <div className="flex flex-col items-center  relative  md:w-2/6  h-full mb-6">
             <div className="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden ring-2 ring-accent">
               <Image
                 src={pfp}
@@ -103,6 +57,9 @@ export default function HeroSection() {
                 sizes="(max-width: 768px) 192px, 256px"
                 priority
               />
+            </div>
+            <div className="pt-6 mx-auto">
+              <Socials />
             </div>
           </div>
         </div>

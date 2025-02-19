@@ -87,6 +87,7 @@ export default function GhanchiSandeshPage() {
                   src={src}
                   alt={`Ghanchi Sandesh App Screenshot ${i + 1}`}
                   fill
+                  loading="lazy"
                   className="object-contain"
                   sizes="(max-width: 768px) 100vw, 30vw"
                   quality={95}
