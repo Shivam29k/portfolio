@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import BreadCrumbs from "../components/BreadCrums";
 
-function page() {
+export default function Projects() {
   return (
-    <div>page</div>
-  )
+    <div className="container py-6">
+      <BreadCrumbs path="projects" />
+    </div>
+  );
 }
-
-export default page

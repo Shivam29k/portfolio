@@ -41,7 +41,7 @@ export default function GhanchiSandeshPage() {
   return (
     <main className="min-h-screen container space-y-4 md:space-y-6 py-4 md:py-6">
       {/* Navigation */}
-      <div className="pt-2 md:pt-6">
+      <div className="">
         <BreadCrums path={"projects/ghanchi-sandesh"} />
       </div>
 

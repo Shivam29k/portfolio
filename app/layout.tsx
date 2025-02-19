@@ -30,9 +30,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="mt-16">
+          <main className="mt-16">
             {children}
-          </div>
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

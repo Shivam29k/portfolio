@@ -143,28 +143,8 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" className="py-12 md:py-20">
-      <div className="container relative">
+      <div className="container ">
         <h2 className="text-2xl font-bold mb-6 md:mb-8">Notable Work</h2>
-
-        {hoveredProject && (
-          <div
-            className="fixed pointer-events-none hidden md:block"
-            style={{
-              left: `${mousePosition.x}px`,
-              top: `${mousePosition.y}px`,
-              width: "500px",
-              height: "300px",
-              zIndex: 50,
-              transition: "transform 0.1s ease-out",
-            }}
-          >
-            <Image
-              src={hoveredProject}
-              alt="Project preview"
-              className="w-full h-full object-cover rounded-lg shadow-xl"
-            />
-          </div>
-        )}
 
         {/* Notable Projects */}
         <div className="flex flex-col border-t border-border">
@@ -172,27 +152,24 @@ export default function ProjectsSection() {
             <Link
               href={`/projects/${project.slug}`}
               key={index}
-              className="border-b border-border py-6 md:py-10 relative group custom-cursor"
+              className="border-b border-border py-6 md:py-10  group custom-cursor"
               onMouseEnter={() => setHoveredProject(project.previewImage)}
               onMouseLeave={() => setHoveredProject(null)}
               onMouseMove={handleMouseMove}
             >
-              <div className="max-w-full md:max-w-[60%] space-y-3">
-                {/* Title */}
-                <h3 className="text-lg md:text-xl font-medium">{project.title}</h3>
+              <div className=" space-y-3">
+                <h3 className="text-lg md:text-xl font-medium">
+                  {project.title}
+                </h3>
 
-                {/* Description */}
                 <p className="text-sm md:text-base text-foreground-secondary">
                   {project.description}
                 </p>
 
-                {/* Impact with numbers highlighted */}
                 <p
                   className="text-sm md:text-base text-foreground-secondary"
                   dangerouslySetInnerHTML={highlightNumbers(project.impact)}
                 />
-
-                {/* Stack Icons */}
                 <div className="flex items-center gap-2 md:gap-3 text-xl md:text-2xl text-foreground-secondary pt-2 flex-wrap">
                   {project.stackIcons}
                 </div>

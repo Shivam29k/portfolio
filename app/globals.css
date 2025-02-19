@@ -28,6 +28,20 @@
   --cursor-color: #fbbf24; /* Yellow for dark mode */
 }
 
+
+
+main {
+  transition: all 200ms ease-in-out;
+  opacity: 1;
+  filter: blur(0);
+}
+
+.page-transition {
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(0.95);
+}
+
 @layer base {
   body {
     @apply bg-background text-foreground;
