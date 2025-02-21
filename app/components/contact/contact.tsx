@@ -31,6 +31,10 @@ export default function Contact() {
     message: string;
   }>({ type: null, message: "" });
 
+  useEffect(() => {
+    document.title = "Contact - Shivam Kumar";
+  }, []);
+
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   if (!siteKey) {
@@ -41,10 +45,6 @@ export default function Contact() {
       </div>
     );
   }
-
-  useEffect(() => {
-    document.title = "Contact - Shivam Kumar";
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
