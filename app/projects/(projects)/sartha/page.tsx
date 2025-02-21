@@ -17,6 +17,7 @@ import {
 import BreadCrums from "@/app/components/BreadCrums";
 import Stack from "@/app/components/Stack";
 import List from "@/app/components/List";
+import Script from "next/script";
 
 const technologies = [
   { name: "React", icon: SiReact },
@@ -43,8 +44,12 @@ const keyFeatures = [
 
 
 export default function SarthaPage() {
+
+
   return (
     <main className="min-h-screen container space-y-4 md:space-y-6 py-4 md:py-6">
+      <Script src="https://fast.wistia.com/embed/medias/ptujav2p5m.jsonp" />
+      <Script src="https://fast.wistia.com/assets/external/E-v1.js" />
       {/* Navigation */}
       <div className="">
         <BreadCrums path={"projects/sartha"} />
@@ -80,14 +85,53 @@ export default function SarthaPage() {
         <List facts={keyFeatures} />
       </div>
 
-      {/* Platform Screenshots */}
-      <div className="relative h-[300px] md:h-[400px] rounded-xl overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070"
-          alt="Sartha Platform"
-          fill
-          className="object-cover"
-        />
+      {/* Video */}
+      <div className="relative rounded-xl overflow-hidden">
+        <div
+          className="wistia_responsive_padding"
+          style={{ padding: '56.25% 0 0 0', position: 'relative' }}
+        >
+          <div
+            className="wistia_responsive_wrapper"
+            style={{
+              height: '100%',
+              left: 0,
+              position: 'absolute',
+              top: 0,
+              width: '100%',
+            }}
+          >
+            <div
+              className="wistia_embed wistia_async_ptujav2p5m videoFoam=true"
+              style={{ height: '100%', width: '100%', position: 'relative' }}
+            >
+              <div
+                className="wistia_swatch"
+                style={{
+                  height: '100%',
+                  left: 0,
+                  opacity: 0,
+                  overflow: 'hidden',
+                  position: 'absolute',
+                  top: 0,
+                  transition: 'opacity 200ms',
+                  width: '100%',
+                }}
+              >
+                <img
+                  src="https://fast.wistia.com/embed/medias/ptujav2p5m/swatch"
+                  style={{
+                    filter: 'blur(5px)',
+                    height: '100%',
+                    objectFit: 'contain',
+                    width: '100%',
+                  }}
+                  alt="Video Thumbnail"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Key Metrics */}
@@ -112,23 +156,6 @@ export default function SarthaPage() {
         ))}
       </ul>
 
-      {/* CTA */}
-      <div className="flex justify-center gap-6 py-8">
-        <a
-          href="https://sartha.in"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors"
-        >
-          Visit Platform
-        </a>
-        <Link
-          href="/#contact"
-          className="px-8 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors"
-        >
-          Contact Me
-        </Link>
-      </div>
     </main>
   );
 }

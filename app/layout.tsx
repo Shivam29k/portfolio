@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/app/components/ThemeProvider";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id={process.env.UMAMI_WEBSITE_ID}
+        />
+      </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"

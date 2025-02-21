@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/stats",
+        "destination": "https://us.umami.is/share/q15UnEDE2sbyysII/shivamk.tech"
+      }
+    ]
+  }

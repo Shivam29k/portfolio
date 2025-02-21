@@ -1,199 +1,105 @@
-import Image from 'next/image'
-import Link from 'next/link'
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  SiNextdotjs,
+  SiPostgresql,
+  SiPython,
+  SiTensorflow,
+  SiOpenai,
+  SiWebrtc,
+  SiDocker,
+  SiKubernetes,
+  SiAmazon,
+  SiGithub,
+  SiTailwindcss,
+} from "react-icons/si";
+import BreadCrums from "@/app/components/BreadCrums";
+import Stack from "@/app/components/Stack";
+import List from "@/app/components/List";
+
+const technologies = [
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "Python", icon: SiPython },
+  { name: "TensorFlow", icon: SiTensorflow },
+  { name: "OpenAI", icon: SiOpenai },
+  { name: "WebRTC", icon: SiWebrtc },
+  { name: "Docker", icon: SiDocker },
+  { name: "Kubernetes", icon: SiKubernetes },
+  { name: "AWS", icon: SiAmazon },
+  { name: "GitHub Actions", icon: SiGithub },
+];
+
+const keyFeatures = [
+  "Built an AI-powered Learning Management System with advanced proctoring capabilities, serving 5K+ students at Chitkara University.",
+  "Implemented automated test generation using LLMs, reducing content creation time by 65%.",
+  "Developed a RAG-based chatbot for instant query resolution, trained on course-specific materials.",
+  "Created real-time proctoring system with 98% accuracy in detecting violations using ML algorithms.",
+  "Designed scalable architecture using Docker and Kubernetes for handling concurrent test sessions.",
+  "Integrated PDF processing pipeline for automated conversion of study materials into structured tests."
+];
 
 export default function MockopediaPage() {
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974"
-            alt="Mockopedia Platform"
-            fill
-            className="object-cover brightness-50"
-          />
-        </div>
-        <div className="container relative z-10">
-          <Link 
-            href="/#projects" 
-            className="text-white hover:text-primary-hover mb-8 inline-block"
+    <main className="min-h-screen container space-y-4 md:space-y-6 py-4 md:py-6">
+      {/* Navigation */}
+      <div className="">
+        <BreadCrums path={"projects/mockopedia"} />
+      </div>
+
+      {/* Project Header */}
+      <div className="space-y-4 md:space-y-6">
+        <h1 className="text-xl md:text-3xl font-bold text-foreground">
+          Mockopedia
+        </h1>
+        <a
+          href="https://dev.mockopedia.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:text-primary-hover transition-colors text-sm md:text-base break-words"
+        >
+          https://dev.mockopedia.com
+        </a>
+      </div>
+
+      <p className="text-sm md:text-base text-foreground-secondary leading-relaxed">
+        An AI-Driven Learning Management System with Advanced Proctoring capabilities.
+        The platform revolutionizes educational assessment through automated test generation,
+        smart proctoring, and intelligent student assistance.
+      </p>
+
+      <div className="overflow-x-auto -mx-4 px-4 md:overflow-visible md:px-0">
+        <Stack technologies={technologies} />
+      </div>
+
+      {/* Key Features */}
+      <div className="text-sm md:text-base">
+        <List facts={keyFeatures} />
+      </div>
+
+      {/* Key Metrics */}
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 py-2 md:py-4">
+        {[
+          { value: "5K+", label: "Active Students" },
+          { value: "65%", label: "Time Saved" },
+          { value: "98%", label: "Proctoring Accuracy" },
+          { value: "1M+", label: "Questions Generated" },
+        ].map((metric, index) => (
+          <li
+            key={index}
+            className="p-4 md:p-6 rounded-xl bg-background-secondary"
           >
-            ← Back to Projects
-          </Link>
-          <h1 className="text-5xl font-bold text-white mb-4">Mockopedia</h1>
-          <p className="text-xl text-gray-200 max-w-2xl">
-            AI-Driven Learning Management System with Advanced Proctoring, 
-            adopted by Chitkara University for 5K+ students
-          </p>
-        </div>
-      </section>
-
-      {/* AI Features */}
-      <section className="py-20 bg-background-secondary">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-12 text-foreground">AI Capabilities</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-background p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-foreground">
-                Test Generation
-              </h3>
-              <p className="text-foreground-secondary">
-                One-click creation of questions and answers using advanced LLMs, 
-                with automatic database storage post-review.
-              </p>
+            <div className="text-2xl md:text-3xl font-bold text-primary">
+              {metric.value}
             </div>
-            <div className="bg-background p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-foreground">
-                Smart Proctoring
-              </h3>
-              <p className="text-foreground-secondary">
-                Real-time detection of tab switching, screen sharing, and unauthorized 
-                device usage during exams.
-              </p>
+            <div className="text-sm md:text-base text-foreground-secondary mt-1">
+              {metric.label}
             </div>
-            <div className="bg-background p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-foreground">
-                RAG Chatbot
-              </h3>
-              <p className="text-foreground-secondary">
-                Course-specific AI assistant trained on study materials for 
-                instant query resolution and guidance.
-              </p>
-            </div>
-            <div className="bg-background p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-foreground">
-                PDF Processing
-              </h3>
-              <p className="text-foreground-secondary">
-                Automated conversion of PDF materials into structured tests 
-                with detailed explanations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Platform Demo */}
-      <section className="py-20">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-12 text-foreground">Platform Overview</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div className="relative h-[400px] rounded-lg overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=2070"
-                  alt="Platform Demo"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="relative h-[100px] rounded-lg overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=2070"
-                    alt="Feature 1"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative h-[100px] rounded-lg overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070"
-                    alt="Feature 2"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative h-[100px] rounded-lg overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=2070"
-                    alt="Feature 3"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="space-y-8">
-              <h3 className="text-2xl font-semibold text-foreground">
-                Key Achievements
-              </h3>
-              <div className="space-y-6">
-                <div>
-                  <div className="text-3xl font-bold text-primary mb-2">65%</div>
-                  <div className="text-foreground-secondary">
-                    Reduction in test creation time for educators
-                  </div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary mb-2">5K+</div>
-                  <div className="text-foreground-secondary">
-                    Active student users at Chitkara University
-                  </div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary mb-2">98%</div>
-                  <div className="text-foreground-secondary">
-                    Accuracy in proctoring violations detection
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tech Stack */}
-      <section className="py-20 bg-background-secondary">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-12 text-foreground">Tech Stack</h2>
-          <div className="flex flex-wrap gap-4">
-            {[
-              "Next.js",
-              "LLMs",
-              "RAG",
-              "Proctoring Algorithms",
-              "PostgreSQL",
-              "Vector DB",
-              "WebRTC",
-              "TensorFlow"
-            ].map((tech) => (
-              <span 
-                key={tech}
-                className="px-4 py-2 bg-background-secondary text-foreground-secondary rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-8 text-foreground">
-            Transform Your Institution
-          </h2>
-          <div className="flex justify-center gap-6">
-            <a 
-              href="https://dev.mockopedia.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors"
-            >
-              Try Demo
-            </a>
-            <Link
-              href="/#contact"
-              className="px-8 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors"
-            >
-              Contact Me
-            </Link>
-          </div>
-        </div>
-      </section>
+          </li>
+        ))}
+      </ul>
     </main>
-  )
-} 
+  );
+}

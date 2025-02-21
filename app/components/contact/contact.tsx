@@ -1,10 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import FormInput from "@/app/components/Input";
 import { ChevronRight } from "lucide-react";
-import Socials from "./Socials";
 import { Turnstile } from "next-turnstile";
-import { submitContactForm } from "../actions/contact.action";
+import { submitContactForm } from "./contact.action";
 
 const DrawOutlineButton = ({
   children,
@@ -70,10 +69,7 @@ export default function Contact() {
         });
         form.reset();
       } else {
-        setFormStatus({
-          type: "error",
-          message: response.message
-        });
+        throw new Error(response.message);
       }
     } catch (error) {
       setFormStatus({
@@ -133,6 +129,8 @@ export default function Contact() {
             <Turnstile
               siteKey={siteKey}
               onVerify={(token: string) => setTurnstileToken(token)}
+              onExpire={() => setTurnstileToken("")}
+              id="my-turnstile"
             />
             <DrawOutlineButton type="submit" disabled={isSubmitting}>
               <div className="flex items-center gap-2">
