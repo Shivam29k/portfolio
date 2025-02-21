@@ -1,6 +1,6 @@
 "use server";
 
-import { TurnstileValidateResponse, validateTurnstileToken } from "next-turnstile";
+import { validateTurnstileToken } from "next-turnstile";
 import { v4 } from "uuid";
 import sendMail from "./email.action";
 

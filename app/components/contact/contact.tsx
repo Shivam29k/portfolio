@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import FormInput from "@/app/components/Input";
 import { ChevronRight } from "lucide-react";
 import { Turnstile } from "next-turnstile";

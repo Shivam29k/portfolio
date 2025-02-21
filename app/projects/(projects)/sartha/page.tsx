@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import {
   SiNextdotjs,
   SiMongodb,
@@ -8,7 +7,7 @@ import {
   SiAmazon,
   SiReact,
   SiPrisma,
-    SiNginx,
+  SiNginx,
   SiGithub,
   SiTailwindcss,
   SiRedux,
@@ -39,13 +38,10 @@ const keyFeatures = [
   "Automated workflows to reduce manual effort by 80%, including digital asset delivery, order tracking, and other operational processes.",
   "Integrated a secure payment gateway, adhering to industry-standard security protocols.",
   "Self-hosted on a VPS with a CI/CD pipeline, cutting deployment time and efforts by 90%.",
-  "Designed a scalable infrastructure capable of handling 3K+ daily visits efficiently."
+  "Designed a scalable infrastructure capable of handling 3K+ daily visits efficiently.",
 ];
 
-
 export default function SarthaPage() {
-
-
   return (
     <main className="min-h-screen container space-y-4 md:space-y-6 py-4 md:py-6">
       <Script src="https://fast.wistia.com/embed/medias/ptujav2p5m.jsonp" />
@@ -80,53 +76,51 @@ export default function SarthaPage() {
         <Stack technologies={technologies} />
       </div>
 
-      {/* Key Features */}
-      <div className="text-sm md:text-base">
-        <List facts={keyFeatures} />
-      </div>
-
       {/* Video */}
-      <div className="relative rounded-xl overflow-hidden">
+      <div className="relative rounded-xl overflow-hidden pt-2">
         <div
           className="wistia_responsive_padding"
-          style={{ padding: '56.25% 0 0 0', position: 'relative' }}
+          style={{ padding: "56.25% 0 0 0", position: "relative" }}
         >
           <div
             className="wistia_responsive_wrapper"
             style={{
-              height: '100%',
+              height: "100%",
               left: 0,
-              position: 'absolute',
+              position: "absolute",
               top: 0,
-              width: '100%',
+              width: "100%",
             }}
           >
             <div
               className="wistia_embed wistia_async_ptujav2p5m videoFoam=true"
-              style={{ height: '100%', width: '100%', position: 'relative' }}
+              style={{ height: "100%", width: "100%", position: "relative" }}
             >
               <div
                 className="wistia_swatch"
                 style={{
-                  height: '100%',
+                  height: "100%",
                   left: 0,
                   opacity: 0,
-                  overflow: 'hidden',
-                  position: 'absolute',
+                  overflow: "hidden",
+                  position: "absolute",
                   top: 0,
-                  transition: 'opacity 200ms',
-                  width: '100%',
+                  transition: "opacity 200ms",
+                  width: "100%",
                 }}
               >
-                <img
+                <Image
                   src="https://fast.wistia.com/embed/medias/ptujav2p5m/swatch"
-                  style={{
-                    filter: 'blur(5px)',
-                    height: '100%',
-                    objectFit: 'contain',
-                    width: '100%',
-                  }}
                   alt="Video Thumbnail"
+                  width={500}
+                  height={300}
+                  quality={75}
+                  style={{
+                    filter: "blur(5px)",
+                    height: "100%",
+                    objectFit: "contain",
+                    width: "100%",
+                  }}
                 />
               </div>
             </div>
@@ -134,10 +128,15 @@ export default function SarthaPage() {
         </div>
       </div>
 
+      {/* Key Features */}
+      <div className="text-sm md:text-base">
+        <List facts={keyFeatures} />
+      </div>
+
       {/* Key Metrics */}
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 py-2 md:py-4">
+      <ul className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 py-2 md:py-4">
         {[
-          { value: "15K+", label: "Students Guided" },
+          { value: "15K+", label: "Students Visits" },
           { value: "70%", label: "Cost Reduction" },
           { value: "3K+", label: "Peak Daily Visits" },
           { value: "25K+", label: "Data Points Analyzed" },
@@ -155,7 +154,6 @@ export default function SarthaPage() {
           </li>
         ))}
       </ul>
-
     </main>
   );
 }
