@@ -1,6 +1,6 @@
 # Shivam Kumar  
 **Fullstack Developer | Mobile App Engineer | DevOps Specialist**  
-[Portfolio](https://shivamkrandom.me) | [GitHub](https://github.com/Shivam29k) | [LinkedIn](https://linkedin.com/in/shivamkrandom) | [Email](mailto:skumarshivam50@gmail.com)  
+[Portfolio](https://shivamk.tech) | [GitHub](https://github.com/Shivam29k) | [LinkedIn](https://linkedin.com/in/shivamkrandom) | [Email](mailto:skumarshivam50@gmail.com)  
 
 ---
 
